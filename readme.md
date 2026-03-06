@@ -39,7 +39,8 @@ https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={chave}&lang=pt
 
 Para trocar a chave, localize no JavaScript:
 ```js
-var OWM_KEY = 'sua_chave_aqui';
+var OWM_KEY = 'fe7a4de00dc211a0dd9a7951bc0dd054';
+e substitua com a sua chave
 ```
 
 Chave gratuita em: openweathermap.org/api
@@ -73,10 +74,13 @@ Para desenvolvimento, use a extensão **Live Server** no VS Code.
 
 ```
 pixelforge-landing/
-├── index.html   ← tudo em um único arquivo
-└── README.md
+├── Styles ── Style.css ← maioria do css usado
+├── index.html   ← html e muitas correçoes de ultima hora
+├── script.js    ← maioria do codigo funcional
+└── README.md   ← aqui
 ```
 
 ---
 
 > PixelForge Studios — *Craft. Forge. Conquer.*
+
