@@ -1,10 +1,6 @@
-/* =========================================================
-   PixelForge Studios — script.js
-   ========================================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── THEME TOGGLE ────────────────────────────────────────
+  // THEME TOGGLE //
   const themeBtn = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('pf-theme');
   if (savedTheme === 'light') document.body.classList.add('light-mode');
@@ -15,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeBtn.setAttribute('aria-label', isLight ? 'Ativar modo escuro' : 'Ativar modo claro');
   });
 
-  // ─── CUSTOM CURSOR (desktop/mouse only) ──────────────────
+  // CUSTOM CURSOR (desktop) //
   const dot = document.querySelector('.cursor-dot');
   const outline = document.querySelector('.cursor-outline');
   const hasMouse = window.matchMedia('(pointer: fine)').matches;
@@ -79,20 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (outline) outline.remove();
   }
 
-  // ─── NAVBAR SCROLL ───────────────────────────────────────
+  // NAVBAR SCROLL //
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // ─── MOBILE MENU ─────────────────────────────────────────
+  // MOBILE MENU //
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', open);
-      // Animate bars
+      // Animate bars//
       const bars = hamburger.querySelectorAll('span');
       if (open) {
         bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -105,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close on link click
+    // Close on link click //
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -115,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── SCROLL REVEAL ───────────────────────────────────────
+  // SCROLL REVEAL //
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Small stagger for sibling elements
+        // stagger para aura//
         const delay = entry.target.dataset.delay || 0;
         setTimeout(() => {
           entry.target.classList.add('visible');
@@ -134,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  // ─── GAME CARD TILT ──────────────────────────────────────
+  // GAME CARD TILT //
   const gameCards = document.querySelectorAll('.game-card');
   gameCards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -153,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── TYPED TEXT ──────────────────────────────────────────
+  // TEXT //
   const typedEl = document.getElementById('typedText');
   if (typedEl) {
     const phrases = ['INDIE GAMES', 'EPIC WORLDS', 'PIXEL ART', 'GREAT STORIES'];
@@ -184,8 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 800);
   }
 
-  // ─── COUNTER ANIMATION ───────────────────────────────────
-  const counters = document.querySelectorAll('[data-count]');
+  // COUNTER ANIMATION //
+   const counters = document.querySelectorAll('[data-count]');
   const counterObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -206,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
-  // ─── FORM VALIDATION ─────────────────────────────────────
+  // FORM VALIDATION //
   const form = document.getElementById('contactForm');
   if (form) {
     const successMsg = document.getElementById('formSuccess');
@@ -228,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return valid;
     }
 
-    // Live validation
+    // Live validation //
     form.querySelectorAll('input, textarea, select').forEach(input => {
       input.addEventListener('blur', () => {
         const group = input.closest('.form-group');
@@ -254,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.textContent = 'ENVIANDO...';
         btn.disabled = true;
 
-        // Simulate send
+        // Gaslighting //
         setTimeout(() => {
           form.style.display = 'none';
           successMsg.classList.add('show');
@@ -263,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── ACTIVE NAV HIGHLIGHT ────────────────────────────────
+  // ACTIVE NAV HIGHLIGHT //
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-links a');
 
@@ -279,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── GLITCH EFFECT on logo ───────────────────────────────
+  // GLITCH EFFECT LOGO //
   const logo = document.querySelector('.nav-logo');
   if (logo) {
     setInterval(() => {
@@ -288,8 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
   }
 
-  // ─── PARALLAX HERO ───────────────────────────────────────
-  const heroBg = document.querySelector('.hero-bg');
+  // PARALLAX HERO 
+   const heroBg = document.querySelector('.hero-bg');
   if (heroBg) {
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
