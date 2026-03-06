@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-/* ── RESET ── */
+/* RESET */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── VARS DARK ── */
+/* modo escuro */
 :root{
   --bg:#0A0A0A;--fg:#FFFFFF;--purple:#3D348B;--neon:#00F5FF;
   --card-bg:rgba(61,52,139,.13);--card-border:rgba(0,245,255,.12);
@@ -20,7 +20,7 @@
   --footer-bg:rgba(0,0,0,.5);--neon-glow:0 0 18px rgba(0,245,255,.55),0 0 50px rgba(0,245,255,.18);
   --fp:'Press Start 2P',monospace;--fb:'Montserrat',sans-serif;--tr:.3s ease
 }
-/* ── VARS LIGHT ── */
+/* modo claro */
 body.light{
   --bg:#eeedf5;--fg:#0e0c1e;--neon:#0077aa;
   --card-bg:rgba(61,52,139,.06);--card-border:rgba(61,52,139,.18);
@@ -28,19 +28,19 @@ body.light{
   --input-border:rgba(61,52,139,.22);--nav-bg:rgba(238,237,245,.93);
   --footer-bg:rgba(61,52,139,.07);--neon-glow:0 0 14px rgba(0,119,170,.4),0 0 40px rgba(0,119,170,.12)
 }
-
+/* config de cursor */
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font-family:var(--fb);overflow-x:hidden;transition:background .4s,color .4s}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
 
-/* ── CURSOR ── */
+/* cursor custom */
 #cur-dot,#cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s}
 #cur-dot{width:8px;height:8px;background:var(--neon);border-radius:50%;box-shadow:var(--neon-glow)}
 #cur-ring{width:30px;height:30px;border:1.5px solid var(--neon);border-radius:50%;z-index:9998}
 
-/* ── UTILS ── */
+/* utils genericos */
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .sec-tag{font-family:var(--fp);font-size:.5rem;color:var(--neon);letter-spacing:.15em;display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .sec-tag::before,.sec-tag::after{content:'';width:22px;height:1px;background:var(--neon);opacity:.5}
@@ -50,7 +50,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--fb);overflow-x:hidde
 .reveal.vis{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-/* ── NAVBAR ── */
+/* barra de navegação */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:500;padding:18px 0;transition:background .3s,padding .3s}
 #navbar.scrolled{background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--card-border);padding:12px 0}
 .nav-inner{display:flex;align-items:center;gap:16px}
@@ -74,7 +74,7 @@ body.light .ti-sun{transform:rotate(0) scale(1);opacity:1}
 #hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 #hamburger span{display:block;width:22px;height:2px;background:var(--neon);transition:all .3s}
 
-/* ── HERO ── */
+/* hero */
 #home{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(61,52,139,.35) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 15% 80%,rgba(0,245,255,.06) 0%,transparent 55%),var(--bg)}
 .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,245,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 25%,transparent 75%)}
@@ -99,7 +99,7 @@ body.light .btn-ghost{border-color:rgba(14,12,30,.25)}
 .stat-num{font-family:var(--fp);font-size:.95rem;color:var(--neon);text-shadow:var(--neon-glow);display:block;margin-bottom:6px}
 .stat-lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 
-/* ── WEATHER WIDGET ── */
+/* Implementação da API */
 #clima{padding:0 0 80px;position:relative}
 .weather-widget{max-width:860px;margin:0 auto;border:1px solid var(--card-border);background:var(--card-bg);padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
 .weather-widget::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,255,.04),transparent 60%);pointer-events:none}
@@ -124,7 +124,7 @@ body.light .btn-ghost{border-color:rgba(14,12,30,.25)}
 .w-error{color:#ff4545;line-height:1.9}
 .weather-tip{font-family:var(--fp);font-size:.38rem;color:var(--neon);letter-spacing:.08em;line-height:1.9;max-width:300px}
 
-/* ── GAMES ── */
+/* ── Utils para games ── */
 #jogos{padding:120px 0}
 #jogos::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,var(--neon),transparent);opacity:.2;margin-bottom:120px;margin-top:-120px}
 .games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
@@ -150,7 +150,7 @@ body.light .btn-ghost{border-color:rgba(14,12,30,.25)}
 .s{color:#ffd700;font-size:.75rem}.s.e{color:var(--card-border)}
 .game-plat{font-size:.68rem;color:var(--muted)}
 
-/* ── TRAILER ── */
+/* Utils para trailer */
 #trailer{padding:120px 0;background:linear-gradient(180deg,var(--bg) 0%,rgba(61,52,139,.08) 50%,var(--bg) 100%)}
 .trailer-wrap{max-width:860px;margin:0 auto}
 .trailer-header{text-align:center;margin-bottom:40px}
@@ -178,7 +178,7 @@ body.light .pf-splash{background:linear-gradient(135deg,#c8c4e8,#d4cfee,#e0dcf8)
 .ttab{font-family:var(--fp);font-size:.38rem;padding:8px 14px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--muted);cursor:pointer;letter-spacing:.08em;transition:all var(--tr)}
 .ttab:hover,.ttab.active{border-color:var(--neon);color:var(--neon);background:rgba(0,245,255,.07)}
 
-/* ── COMMUNITY ── */
+/* Utils comunidade */
 #comunidade{padding:120px 0}
 .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
 .test-card{background:var(--card-bg);border:1px solid var(--card-border);padding:28px;position:relative;transition:all var(--tr)}
@@ -192,7 +192,7 @@ body.light .pf-splash{background:linear-gradient(135deg,#c8c4e8,#d4cfee,#e0dcf8)
 .test-handle{font-size:.7rem;color:var(--neon);opacity:.7}
 .test-gtag{position:absolute;bottom:14px;right:14px;font-family:var(--fp);font-size:.32rem;color:var(--neon);opacity:.45;background:rgba(0,245,255,.05);padding:3px 8px;border:1px solid rgba(0,245,255,.1)}
 
-/* ── CONTACT ── */
+/* Utils contato */
 #contato{padding:120px 0;background:linear-gradient(180deg,var(--bg),rgba(61,52,139,.07) 50%,var(--bg))}
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
 .contact-info h3{font-family:var(--fp);font-size:.68rem;line-height:1.9;margin-bottom:20px}
@@ -212,7 +212,7 @@ body.light .pf-splash{background:linear-gradient(135deg,#c8c4e8,#d4cfee,#e0dcf8)
 .fgroup.err input,.fgroup.err textarea{border-color:#ff4545}
 .fgroup.err .ferr{display:block}
 
-/* CEP specifics */
+/* config de CEP Api */
 .cep-row{display:grid;grid-template-columns:160px 1fr;gap:14px}
 .cep-status{font-family:var(--fp);font-size:.36rem;letter-spacing:.1em;padding:3px 0;display:none;line-height:1.8}
 .cep-status.loading{display:block;color:var(--neon);animation:blink 1s step-end infinite}
@@ -229,7 +229,7 @@ input[readonly]{opacity:.65;border-style:dashed !important;cursor:default}
 .fsuccess .sicon{font-size:3rem;animation:bounce .6s ease}
 .fsuccess p{font-family:var(--fp);font-size:.52rem;color:var(--neon);line-height:1.9}
 
-/* ── FOOTER ── */
+/* Footer */
 footer{background:var(--footer-bg);border-top:1px solid var(--card-border);padding:56px 0 28px}
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
 .ft-tagline{font-size:.8rem;color:var(--muted);line-height:1.7;max-width:230px;margin-top:12px}
@@ -246,7 +246,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
 .flegal a{font-size:.7rem;color:var(--muted);text-decoration:none;transition:color var(--tr)}
 .flegal a:hover{color:var(--neon)}
 
-/* ── KEYFRAMES ── */
+/* Animaçoes */
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(3deg)}}
 @keyframes orb-pulse{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.04)}}
@@ -255,7 +255,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
 @keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(180deg)}}
 @keyframes bounce{0%,100%{transform:scale(1)}40%{transform:scale(1.3)}60%{transform:scale(.9)}}
 
-/* ── RESPONSIVE ── */
+/* responsividade */
 @media(max-width:1024px){
   .hero-orb{display:none}
   .footer-top{grid-template-columns:1fr 1fr}
@@ -289,7 +289,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
-<!-- ═══ NAVBAR ═══ -->
+<!-- Barra de navegação -->
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo">
@@ -320,7 +320,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- hero -->
 <section id="home">
   <div class="hero-bg"></div>
   <div class="container">
@@ -349,7 +349,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ CLIMA — API OpenWeatherMap ═══ -->
+<!-- Openweather Emplementação -->
 <section id="clima">
   <div class="container">
     <div class="sec-tag reveal" style="justify-content:center;margin-bottom:20px">Dados em Tempo Real</div>
@@ -360,7 +360,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
 
     <div class="weather-widget reveal" id="weatherWidget">
 
-      <!-- Info principal (oculto até buscar) -->
+      <!-- Info (Oculto) -->
       <div class="weather-left" id="wInfo" style="display:none">
         <div class="weather-icon-wrap" id="wIcon">⛅</div>
         <div>
@@ -370,7 +370,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
         </div>
       </div>
 
-      <!-- Detalhes (oculto até buscar) -->
+      <!-- detalhes (oculto) -->
       <div class="weather-details" id="wDetails" style="display:none">
         <div class="weather-detail"><span class="wd-val" id="wFeels">--</span><span class="wd-lbl">Sensação</span></div>
         <div class="weather-detail"><span class="wd-val" id="wHumidity">--</span><span class="wd-lbl">Umidade</span></div>
@@ -394,7 +394,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ JOGOS ═══ -->
+<!-- jogos pratico -->
 <section id="jogos">
   <div class="container">
     <div class="sec-tag reveal">Nossos Títulos</div>
@@ -428,7 +428,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ TRAILER ═══ -->
+<!-- trailer (funcional, as vezes) -->
 <section id="trailer">
   <div class="container">
     <div class="trailer-wrap">
@@ -460,7 +460,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ COMUNIDADE ═══ -->
+<!-- Comunidade (majoritariamente funcional) -->
 <section id="comunidade">
   <div class="container">
     <div class="sec-tag reveal">Comunidade Gamer</div>
@@ -476,7 +476,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ CONTATO — com API ViaCEP ═══ -->
+<!-- pratico via cep -->
 <section id="contato">
   <div class="container">
     <div class="sec-tag reveal">Fale Conosco</div>
@@ -570,7 +570,7 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- footer -->
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -600,18 +600,13 @@ footer{background:var(--footer-bg);border-top:1px solid var(--card-border);paddi
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ════════════════════════════════════════════════════════
-//  TEMA CLARO / ESCURO
-// ════════════════════════════════════════════════════════
+//  TEMA CLARO / ESCURO //
 (function(){ if(localStorage.getItem('pf-theme')==='light') document.body.classList.add('light'); })();
 document.getElementById('themeBtn').addEventListener('click',function(){
   document.body.classList.toggle('light');
   localStorage.setItem('pf-theme', document.body.classList.contains('light')?'light':'dark');
 });
-
-// ════════════════════════════════════════════════════════
-//  CURSOR CUSTOMIZADO
-// ════════════════════════════════════════════════════════
+//  CURSOR CUSTOMIZADO //
 var dot=document.getElementById('cur-dot'), ring=document.getElementById('cur-ring');
 if(window.matchMedia('(pointer:fine)').matches){
   var mx=0,my=0,rx=0,ry=0,visible=false;
@@ -631,9 +626,7 @@ if(window.matchMedia('(pointer:fine)').matches){
   document.querySelectorAll('a,button,input,select,textarea').forEach(function(el){el.style.cursor='none';});
 }else{dot.remove();ring.remove();}
 
-// ════════════════════════════════════════════════════════
-//  NAVBAR
-// ════════════════════════════════════════════════════════
+//  NAVBAR // 
 var navbar=document.getElementById('navbar');
 window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 
@@ -649,9 +642,7 @@ nl.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click',function(){nl.classList.remove('open');hbg.querySelectorAll('span').forEach(function(s){s.style.transform='';s.style.opacity='1';});});
 });
 
-// ════════════════════════════════════════════════════════
-//  TYPED TEXT
-// ════════════════════════════════════════════════════════
+// TEXT // 
 var phrases=['INDIE GAMES','EPIC WORLDS','PIXEL ART','GREAT STORIES'];
 var tel=document.getElementById('typed'),pi=0,ci=0,del=false;
 function type(){
@@ -664,17 +655,15 @@ function type(){
 }
 setTimeout(type,600);
 
-// ════════════════════════════════════════════════════════
-//  SCROLL REVEAL
-// ════════════════════════════════════════════════════════
+
+//  SCROLL REVEAL //
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
 },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(function(r){io.observe(r);});
 
-// ════════════════════════════════════════════════════════
-//  CONTADORES
-// ════════════════════════════════════════════════════════
+
+//  CONTADORES // 
 var cio=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(!e.isIntersecting)return;
@@ -685,10 +674,7 @@ var cio=new IntersectionObserver(function(entries){
   });
 },{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(function(c){cio.observe(c);});
-
-// ════════════════════════════════════════════════════════
-//  CARD TILT
-// ════════════════════════════════════════════════════════
+// league of legends (TILT) // 
 document.querySelectorAll('.game-card').forEach(function(card){
   card.addEventListener('mousemove',function(e){
     var r=card.getBoundingClientRect();
@@ -696,10 +682,7 @@ document.querySelectorAll('.game-card').forEach(function(card){
   });
   card.addEventListener('mouseleave',function(){card.style.transform='';});
 });
-
-// ════════════════════════════════════════════════════════
-//  TRAILER PLAYER
-// ════════════════════════════════════════════════════════
+//  TRAILER PLAYER//
 var splash=document.getElementById('pfSplash'),iframe=document.getElementById('pfIframe');
 var playBtn=document.getElementById('pfPlayBtn'),splashTitle=document.getElementById('pfSplashTitle');
 var splashSub=document.getElementById('pfSplashSub'),tabs=document.querySelectorAll('.ttab');
@@ -723,9 +706,7 @@ tabs.forEach(function(tab){
   });
 });
 
-// ════════════════════════════════════════════════════════
-//  ACTIVE NAV
-// ════════════════════════════════════════════════════════
+//  ACTIVE NAV // 
 var sections=document.querySelectorAll('section[id]');
 window.addEventListener('scroll',function(){
   var cur='';
@@ -733,9 +714,8 @@ window.addEventListener('scroll',function(){
   document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
 },{passive:true});
 
-// ════════════════════════════════════════════════════════
-//  FORM VALIDATION
-// ════════════════════════════════════════════════════════
+
+//  FORM VALIDATION// 
 var form=document.getElementById('cform'),fsuccess=document.getElementById('fsuccess'),fsubmit=document.getElementById('fsubmit');
 function validate(input){
   var g=input.closest('.fgroup');if(!g)return true;
@@ -757,9 +737,8 @@ form.addEventListener('submit',function(e){
   setTimeout(function(){form.style.display='none';fsuccess.classList.add('show');},1400);
 });
 
-// ════════════════════════════════════════════════════════
-//  API 1 — ViaCEP (busca automática de endereço)
-// ════════════════════════════════════════════════════════
+
+//  API 1 — ViaCEP //
 var cepInput=document.getElementById('fcep');
 var cepStatus=document.getElementById('cepStatus');
 var flogradouro=document.getElementById('flogradouro');
@@ -810,11 +789,8 @@ cepInput.addEventListener('input',function(){
     });
 });
 
-// ════════════════════════════════════════════════════════
-//  API 2 — OpenWeatherMap (previsão do tempo)
-//  INSTRUCAO: cadastre-se em openweathermap.org (gratuito)
-//  e substitua 'SUA_CHAVE_AQUI' pela sua API key abaixo.
-// ════════════════════════════════════════════════════════
+
+//  API 2 — OpenWeatherMap (previsão do tempo) // 
 var OWM_KEY='fe7a4de00dc211a0dd9a7951bc0dd054';
 
 var wInput=document.getElementById('wInput');
@@ -825,7 +801,7 @@ var wInfo=document.getElementById('wInfo');
 var wDetails=document.getElementById('wDetails');
 var wTip=document.getElementById('wTip');
 
-// Ícone por código de condição (desafio extra)
+// Ícone por código de condição //
 function getIcon(id){
   if(id===800)return'☀️';
   if(id===801)return'🌤️';
@@ -840,7 +816,7 @@ function getIcon(id){
   return'🌡️';
 }
 
-// Dica gamer baseada no clima (desafio extra)
+// Dica gamer baseada no clima (pq xiru)//
 function getTip(id){
   if(id===800)return'☀️ Dia perfeito — fecha as persianas e liga o PC!';
   if(id<=802)return'🌤️ Parcialmente nublado — ideal para jogar!';
@@ -897,7 +873,7 @@ function fetchWeather(city){
 wBtn.addEventListener('click',function(){fetchWeather(wInput.value);});
 wInput.addEventListener('keydown',function(e){if(e.key==='Enter')fetchWeather(this.value);});
 
-// Geolocalização automática ao carregar (se OWM_KEY estiver configurada)
+// localização automática ao carregar//
 if(navigator.geolocation&&OWM_KEY!=='SUA_CHAVE_AQUI'){
   navigator.geolocation.getCurrentPosition(function(pos){
     wStatus.style.display='block';
